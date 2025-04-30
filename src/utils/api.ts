@@ -20,13 +20,22 @@ export const api = {
                 const error: LoginError = new Error('Invalid credentials') as LoginError;
                 error.code = 'NO_CUSTOMER';
                 throw error;
-            }
-            
-            if (customers.length > 1) {
+            } else if (customers.length > 1) {
                 const error: LoginError = new Error('Multiple accounts found with the same credentials') as LoginError;
                 error.code = 'MULTIPLE_CUSTOMERS';
                 throw error;
+            } else {
+                const data = 
+                { 
+                    id: customers[0].id,
+                    phone: customers[0].phone,
+                    password: customers[0].password,
+                    name: customers[0].name,
+                    email: customers[0].email
+                };
+                localStorage.setItem('customer', JSON.stringify(data));
             }
+
             
             return customers[0];
         } catch (error: unknown) {

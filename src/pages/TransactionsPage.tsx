@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import { PackageList } from '../components/organisms/PackageList';
 import { TransactionList } from '../components/organisms/TransactionList';
-import { useAuth } from '../context/AuthContextValue';
+import { useAuth } from '../hooks/useAuth';
 import { useApi } from '../hooks/useApi';
 import { Navigate } from 'react-router-dom';
 import { Package, Transaction } from '../types';
@@ -9,7 +9,7 @@ import { toast } from 'sonner';
 import { MainLayout } from '@/components/templates/MainLayout';
 
 export const TransactionsPage = () => {
-    const { customer } = useAuth();
+    const customer = useAuth().idUser;
     const { fetchPackages, fetchTransactions, purchasePackage, loading, error } = useApi();
     const [packages, setPackages] = useState<Package[]>([]);
     const [transactions, setTransactions] = useState<Transaction[]>([]);
@@ -17,7 +17,7 @@ export const TransactionsPage = () => {
     useEffect(() => {
         if (customer) {
             fetchPackages().then(setPackages);
-            fetchTransactions(customer.id).then(setTransactions);
+            fetchTransactions(customer).then(setTransactions);
         }
     }, [customer, fetchPackages, fetchTransactions]);
 
@@ -30,7 +30,7 @@ export const TransactionsPage = () => {
     const handlePurchase = async (packageId: number) => {
         if (customer) {
             try {
-                const transaction = await purchasePackage(customer.id, packageId);
+                const transaction = await purchasePackage(customer, packageId);
                 setTransactions([...transactions, transaction]);
                 toast.success('Purchase successful!');
             } catch (err: unknown) {

@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
-import { useAuth } from '../../context/AuthContextValue';
+import { useAuth } from '../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../atoms/button';
-import { Toaster } from 'sonner'; // Import from sonner
+import { Toaster } from 'sonner';
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
 import {
     Popover,
@@ -15,11 +15,15 @@ interface MainLayoutProps {
 }
 
 export const MainLayout = ({ children }: MainLayoutProps) => {
-    const { customer, logout } = useAuth();
+    
+
+    const name = useAuth().name;
+    const email = useAuth().email;
+    const phone = useAuth().phone;
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        logout();
+        localStorage.removeItem('customer');
         navigate('/');
     };
 
@@ -28,7 +32,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
             <nav className="bg-gradient-to-br from-teal-900 to-blue-900 p-4">
                 <div className="container mx-auto flex justify-between items-center">
                     <h1 className="text-xl text-amber-50 font-bold">Internet Package Store</h1>
-                    {customer && (
+                    {/* {customer && ( */}
                         <div className="flex space-x-4">
                             <Popover>
                                 <PopoverTrigger asChild>
@@ -40,13 +44,13 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
                                 <PopoverContent className="w-80">
                                     <div className='flex flex-col w-full'>
                                         <p>
-                                            <strong>Name:</strong> {customer.name}
+                                            <strong>Name:</strong> {name}
                                         </p>
                                         <p>
-                                            <strong>Email:</strong> {customer.email}
+                                            <strong>Email:</strong> {email}
                                         </p>
                                         <p>
-                                            <strong>Phone:</strong> {customer.phone}
+                                            <strong>Phone:</strong> {phone}
                                         </p>
                                         <div className='flex justify-end w-full'>
                                             <Button onClick={handleLogout} className=" w-1/2 mt-5">
@@ -57,7 +61,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
                                 </PopoverContent>
                             </Popover>
                         </div>
-                    )}
+                    {/* )} */}
                 </div>
             </nav>
             <main className="container mx-auto p-6">{children}</main>

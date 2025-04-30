@@ -1,28 +1,23 @@
 import { useState } from 'react';
 import { FormInput } from '../molecules/FormInput';
 import { Button } from '../atoms/button';
-import { useAuth } from '../../context/AuthContextValue';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
+import { api } from '@/utils/api';
 
 export const LoginForm = () => {
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
-    const { login } = useAuth();
     const navigate = useNavigate();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
         try {
-            await login(phone, password);
+            await api.login(phone, password);
             toast.success('Login successful!');
-            
-            const data = { phone: phone, password: password };
-            localStorage.setItem('customer', JSON.stringify(data));
-
-            navigate('/transactions');
+            navigate('/transactions',{ replace: true });
         } catch (err: unknown) {
             if (err instanceof Error && 'code' in err) {
                 const loginError = err;
