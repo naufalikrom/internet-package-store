@@ -1,0 +1,137 @@
+{
+  "customers": [
+    {
+      "id": "1",
+      "phone": "081234567890",
+      "password": "12345678",
+      "name": "Jaya",
+      "email": "jaya123@gmail.com"
+    },
+    {
+      "id": "2",
+      "phone": "089876543210",
+      "password": "12345678",
+      "name": "Jane",
+      "email": "jane@gmail.com"
+    }
+  ],
+  "packages": [
+    {
+      "id": "1",
+      "name": "Paket 5GB",
+      "price": 50000,
+      "duration": "30 Hari"
+    },
+    {
+      "id": "2",
+      "name": "Paket 10GB",
+      "price": 90000,
+      "duration": "30 Hari"
+    },
+    {
+      "id": "3",
+      "name": "Paket 20GB",
+      "price": 150000,
+      "duration": "30 Hari"
+    },
+    {
+      "id": "4",
+      "name": "Paket 30GB",
+      "price": 180000,
+      "duration": "30 Hari"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "1",
+      "customerId": 1,
+      "packageId": 1,
+      "date": "2025-04-01",
+      "amount": 50000
+    },
+    {
+      "id": "2",
+      "customerId": 1,
+      "packageId": 2,
+      "date": "2025-03-15",
+      "amount": 90000
+    },
+    {
+      "id": "c143",
+      "customerId": "2",
+      "packageId": "1",
+      "date": "2025-04-30",
+      "amount": 50000
+    },
+    {
+      "id": "c834",
+      "customerId": "2",
+      "packageId": "3",
+      "date": "2025-04-30",
+      "amount": 150000
+    },
+    {
+      "id": "0075",
+      "customerId": "1",
+      "packageId": "2",
+      "date": "2025-04-30",
+      "amount": 90000
+    },
+    {
+      "id": "e0f8",
+      "customerId": "1",
+      "packageId": "2",
+      "date": "2025-04-30",
+      "amount": 90000
+    },
+    {
+      "id": "4d3c",
+      "customerId": "1",
+      "packageId": "1",
+      "date": "2025-04-30",
+      "amount": 50000
+    },
+    {
+      "id": "5f02",
+      "customerId": "1",
+      "packageId": "2",
+      "date": "2025-04-30",
+      "amount": 90000
+    },
+    {
+      "id": "759f",
+      "customerId": "1",
+      "packageId": "3",
+      "date": "2025-04-30",
+      "amount": 150000
+    },
+    {
+      "id": "79c8",
+      "customerId": "1",
+      "packageId": "2",
+      "date": "2025-04-30",
+      "amount": 90000
+    },
+    {
+      "id": "eec6",
+      "customerId": "1",
+      "packageId": "3",
+      "date": "2025-04-30",
+      "amount": 150000
+    },
+    {
+      "id": "44b4",
+      "customerId": "1",
+      "packageId": "2",
+      "date": "2025-04-30",
+      "amount": 90000
+    },
+    {
+      "id": "cc40",
+      "customerId": "1",
+      "packageId": "1",
+      "date": "2025-04-30",
+      "amount": 50000
+    }
+  ]
+}
