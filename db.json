@@ -139,6 +139,20 @@
       "packageId": "2",
       "date": "2025-04-30",
       "amount": 90000
+    },
+    {
+      "id": "6f8e",
+      "customerId": "1",
+      "packageId": "1",
+      "date": "2025-05-01",
+      "amount": 50000
+    },
+    {
+      "id": "5bde",
+      "customerId": "2",
+      "packageId": "3",
+      "date": "2025-05-01",
+      "amount": 150000
     }
   ]
 }
