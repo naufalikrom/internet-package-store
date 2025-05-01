@@ -12,7 +12,6 @@ export const useAuth = () => {
 
     useEffect(() => {
         const data = localStorage.getItem('customer');
-        console.log("data : ", data)
         if (data) {
             const parsedData = JSON.parse(data);
             setIdUser(parsedData.id);
@@ -20,14 +19,11 @@ export const useAuth = () => {
             setPassword(parsedData.password);
             setName(parsedData.name);
             setEmail(parsedData.email);
-            console.log("1");
             Navigate("/transactions", { replace: true });
         } else {
             Navigate("/", { replace: true });
-            console.log("2");
         }
     }, []);
-    console.log("email : ", email)
 
     return { idUser, phone, email, password, name };
 }

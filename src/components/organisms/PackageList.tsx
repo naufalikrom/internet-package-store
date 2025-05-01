@@ -1,4 +1,4 @@
-import { Card } from '../molecules/Card';
+import { Card } from '../atoms/Card';
 import { Button } from '../atoms/button';
 import { Package } from '../../types';
 

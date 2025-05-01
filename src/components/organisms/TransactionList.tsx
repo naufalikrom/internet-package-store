@@ -1,4 +1,4 @@
-import { Card } from '../molecules/Card';
+import { Card } from '../atoms/Card';
 import { Package, Transaction } from '../../types';
 import { format, parseISO } from 'date-fns';
 

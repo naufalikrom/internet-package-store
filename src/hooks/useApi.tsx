@@ -53,7 +53,6 @@ export const useApi = () => {
                 amount: pkg.price,
             };
             const response = await axios.post(`${API_URL}/transactions`, transaction);
-            console.log('Purchase response:', response.data);
             return response.data;
         } catch (error: unknown) {
             const errorMessage = error instanceof Error ? error.message : 'Purchase failed';

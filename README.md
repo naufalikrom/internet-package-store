@@ -9,3 +9,4 @@
   `npm install -g json-server`
 2. run db:
   `npm run server`
+

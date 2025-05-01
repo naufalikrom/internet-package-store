@@ -12,7 +12,6 @@ export const api = {
             const response = await axios.get(`${API_URL}/customers`, {
                 params: { phone, password },
             });
-            console.log('API Response:', response.data);
     
             const customers = response.data;
             
